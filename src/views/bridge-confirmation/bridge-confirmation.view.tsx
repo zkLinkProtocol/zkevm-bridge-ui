@@ -6,7 +6,12 @@ import { parseError } from "src/adapters/error";
 import { getPermit, isContractAllowedToSpendToken } from "src/adapters/ethereum";
 import { getCurrency } from "src/adapters/storage";
 import { ReactComponent as ArrowRightIcon } from "src/assets/icons/arrow-right.svg";
-import { ETH_TOKEN_LOGO_URI, FIAT_DISPLAY_PRECISION, getEtherToken } from "src/constants";
+import {
+  BNB_TOKEN_LOGO_URI,
+  ETH_TOKEN_LOGO_URI,
+  FIAT_DISPLAY_PRECISION,
+  getEtherToken,
+} from "src/constants";
 import { useBridgeContext } from "src/contexts/bridge.context";
 import { useEnvContext } from "src/contexts/env.context";
 import { useErrorContext } from "src/contexts/error.context";
@@ -454,7 +459,7 @@ export const BridgeConfirmation: FC = () => {
         <div className={classes.feeBlock}>
           <Typography type="body2">Estimated gas fee</Typography>
           <div className={classes.fee}>
-            <Icon isRounded size={20} url={ETH_TOKEN_LOGO_URI} />
+            <Icon isRounded size={20} url={BNB_TOKEN_LOGO_URI} />
             <Typography type="body1">{feeString}</Typography>
           </div>
         </div>
