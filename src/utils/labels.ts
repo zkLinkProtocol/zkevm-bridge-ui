@@ -31,7 +31,7 @@ export function getEthereumNetworkName(chainId: number): string {
       return "Goerli Testnet";
     }
     default: {
-      return "Ethereum";
+      return "BSC";
     }
   }
 }

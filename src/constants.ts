@@ -2,6 +2,8 @@ import { StaticJsonRpcProvider } from "@ethersproject/providers";
 import { ethers } from "ethers";
 
 import { ReactComponent as EthChainIcon } from "src/assets/icons/chains/ethereum.svg";
+import { ReactComponent as BnbChainIcon } from "src/assets/icons/chains/bnb-bnb-logo.svg";
+
 import { ReactComponent as PolygonZkEVMChainIcon } from "src/assets/icons/chains/polygon-zkevm.svg";
 import { Chain, Currency, EthereumChain, ProviderError, Token, ZkEVMChain } from "src/domain";
 import { ProofOfEfficiency__factory } from "src/types/contracts/proof-of-efficiency";
@@ -61,6 +63,9 @@ export const DEPOSIT_CHECK_WORD = "I understand";
 export const ETH_TOKEN_LOGO_URI =
   "https://raw.githubusercontent.com/Uniswap/interface/main/packages/ui/src/assets/logos/png/ethereum-logo.png";
 
+export const BNB_TOKEN_LOGO_URI =
+  "https://raw.githubusercontent.com/Uniswap/interface/main/packages/ui/src/assets/logos/png/bnb-logo.png";
+
 export const POLYGON_SUPPORT_URL = "https://support.polygon.technology";
 
 export const POLYGON_TERMS_AND_CONDITIONS_URL = "https://polygon.technology/terms-of-use";
@@ -111,13 +116,13 @@ export const getChains = ({
       bridgeContractAddress: ethereum.bridgeContractAddress,
       chainId: ethereumNetwork.chainId,
       explorerUrl: ethereum.explorerUrl,
-      Icon: EthChainIcon,
+      Icon: BnbChainIcon,
       key: "ethereum",
       name: getEthereumNetworkName(ethereumNetwork.chainId),
       nativeCurrency: {
         decimals: 18,
-        name: "Ether",
-        symbol: "ETH",
+        name: "BNB",
+        symbol: "BNB",
       },
       networkId: 0,
       poeContractAddress: ethereum.poeContractAddress,
@@ -147,9 +152,9 @@ export const getEtherToken = (chain: Chain): Token => {
     address: ethers.constants.AddressZero,
     chainId: chain.chainId,
     decimals: 18,
-    logoURI: ETH_TOKEN_LOGO_URI,
-    name: "Ether",
-    symbol: "ETH",
+    logoURI: BNB_TOKEN_LOGO_URI,
+    name: chain.key === "ethereum" ? "BNB" : "Ether",
+    symbol: chain.key === "ethereum" ? "BNB" : "ETH",
   };
 };
 
