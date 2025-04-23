@@ -50,6 +50,10 @@ export const useBridgeConfirmationStyles = createUseStyles((theme: Theme) => ({
     textOverflow: "ellipsis",
     whiteSpace: "nowrap",
   },
+  chainIcon: {
+    width: 20,
+    height: 20,
+  },
   chainsRow: {
     alignItems: "center",
     borderBottom: `1px solid ${theme.palette.grey.light}`,
