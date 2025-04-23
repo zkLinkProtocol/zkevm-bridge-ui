@@ -3,6 +3,10 @@ import { createUseStyles } from "react-jss";
 import { Theme } from "src/styles/theme";
 
 export const useNetworkSelectorStyles = createUseStyles((theme: Theme) => ({
+  chainIcon: {
+    width: 20,
+    height: 20,
+  },
   networkButton: {
     "&:hover": {
       backgroundColor: theme.palette.grey.main,
