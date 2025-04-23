@@ -346,6 +346,7 @@ export const BridgeConfirmation: FC = () => {
           setFormData(undefined);
         })
         .catch((error) => {
+          console.log("xxxxxxxxxxxxx: ", error);
           callIfMounted(() => {
             setIsBridgeInProgress(false);
             if (isMetaMaskUserRejectedRequestError(error) === false) {
@@ -443,14 +444,14 @@ export const BridgeConfirmation: FC = () => {
         )}
         <div className={classes.chainsRow}>
           <div className={classes.chainBox}>
-            <from.Icon />
+            <from.Icon className={classes.chainIcon} />
             <Typography className={classes.chainName} type="body1">
               {from.name}
             </Typography>
           </div>
           <ArrowRightIcon className={classes.arrowIcon} />
           <div className={classes.chainBox}>
-            <to.Icon />
+            <to.Icon className={classes.chainIcon} />
             <Typography className={classes.chainName} type="body1">
               {to.name}
             </Typography>
