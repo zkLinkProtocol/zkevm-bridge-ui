@@ -138,8 +138,8 @@ export const getChains = ({
       name: polygonZkEVMNetworkName,
       nativeCurrency: {
         decimals: 18,
-        name: "Ether",
-        symbol: "ETH",
+        name: "BNB",
+        symbol: "BNB",
       },
       networkId: polygonZkEVM.networkId,
       provider: polygonZkEVMProvider,
@@ -153,8 +153,8 @@ export const getEtherToken = (chain: Chain): Token => {
     chainId: chain.chainId,
     decimals: 18,
     logoURI: BNB_TOKEN_LOGO_URI,
-    name: chain.key === "ethereum" ? "BNB" : "Ether",
-    symbol: chain.key === "ethereum" ? "BNB" : "ETH",
+    name: chain.key === "ethereum" ? "BNB" : "BNB",
+    symbol: chain.key === "ethereum" ? "BNB" : "BNB",
   };
 };
 

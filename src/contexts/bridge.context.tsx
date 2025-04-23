@@ -775,7 +775,9 @@ const BridgeProvider: FC<PropsWithChildren> = (props) => {
           : (await estimateBridgeGas({ destinationAddress, from, to, token, tokenSpendPermission }))
               .data),
       };
-      overrides.maxFeePerGas = Number(overrides.maxFeePerGas?.toString()) * 2;
+      if (overrides.maxFeePerGas) {
+        overrides.maxFeePerGas = Number(overrides.maxFeePerGas?.toString()) * 2;
+      }
       const executeBridge = async () => {
         const permitData =
           tokenSpendPermission.type === "permit"
