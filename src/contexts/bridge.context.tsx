@@ -728,7 +728,8 @@ const BridgeProvider: FC<PropsWithChildren> = (props) => {
           : BigNumber.from(300000);
 
       const { gasPrice, maxFeePerGas } = await from.provider.getFeeData();
-      if (maxFeePerGas) {
+      if (from.key !== "ethereum" && maxFeePerGas) {
+        //special case for bsc
         return { data: { gasLimit, maxFeePerGas }, type: "eip-1559" };
       } else {
         const legacyGasPrice = gasPrice || (await from.provider.getGasPrice());
@@ -775,9 +776,9 @@ const BridgeProvider: FC<PropsWithChildren> = (props) => {
           : (await estimateBridgeGas({ destinationAddress, from, to, token, tokenSpendPermission }))
               .data),
       };
-      if (overrides.maxFeePerGas) {
-        overrides.maxFeePerGas = Number(overrides.maxFeePerGas?.toString()) * 2;
-      }
+      // if (overrides.maxFeePerGas) {
+      //   overrides.maxFeePerGas = Number(overrides.maxFeePerGas?.toString()) * 2;
+      // }
       const executeBridge = async () => {
         const permitData =
           tokenSpendPermission.type === "permit"
